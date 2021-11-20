@@ -1,0 +1,77 @@
+<header class="header_home">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-main rounded-0">
+    <div class="container-fluid">
+      <h1 class="site-logo mb-0" alt="{{ store.name }}">
+        <a class="" href="{{ links.home }}">
+          {{ Image('logo') }}
+        </a>
+      </h1>
+      <ul class="navbar-nav d-flex flex-row  justify-content-around flex-grow-1 d-lg-none">
+        {% element 'snippets/search' %}
+          {% element 'snippets/customer' %}
+          {% element 'snippets/cart' %}
+      </ul>
+      <div class="collapse navbar-collapse d-none">
+        <ul class="navbar-nav mb-2 ms-auto mb-lg-0 d-none d-lg-block">
+          {% for category in categories %}
+          {% if category.name == 'COLEÇÕES' %}
+          <li class="nav-item nav-text dropdown me-3">
+            <a class="nav-link dropdown-toggle text-white fs-6 text-uppercase h-100 d-flex align-items-center text-decoration-none" href="#"
+              id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ category.name }}
+            </a>
+            <ul class="dropdown-menu bg-primary-theme" aria-labelledby="navbarDropdown">
+              {% for child in category.children %}
+              <li><a class="dropdown-item fs-6" href="{{ child.link }}">{{ child.name }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% endif %}
+          {% endfor %}
+          <li class="nav-item dropdown nav-text me-3">
+            <a class="nav-link dropdown-toggle text-white fs-6 text-uppercase h-100 d-flex align-items-center text-decoration-none" href="#"
+              id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Onde Comprar
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item fs-6 text-decoration-none" href="/nossa-loja">Nossa Loja</a></li>
+              <li><a class="dropdown-item fs-6 text-decoration-none" href="/cila-em-casa">Cila em Casa</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown nav-text me-5">
+            <a class="nav-link dropdown-toggle text-white fs-6 text-uppercase h-100 d-flex align-items-center text-decoration-none" href="#"
+              id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cila
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item fs-6 text-decoration-none" href="/quem-somos">Quem Somos</a></li>
+              <li><a class="dropdown-item fs-6 text-decoration-none" href="/nossa-historia">Nossa História</a></li>
+              <li><a class="dropdown-item fs-6 text-decoration-none" href="/nossa-fabrica">Nossa Fábrica</a></li>
+              <li><a class="dropdown-item fs-6 text-decoration-none" href="/praticas-responsaveis">Práticas Responsáveis</a></li>
+              <li><a class="dropdown-item fs-6 text-decoration-none" href="/personalizados">Personalizados</a></li>
+            </ul>
+          </li>
+          {% element 'snippets/search' %}
+          {% element 'snippets/customer' %}
+          {% element 'snippets/cart' %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<script>
+  $(document).ready(function () {
+    $(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 150 && !$('.navbar-main').hasClass('fixed-top')) {
+          $('.navbar-main').hide();
+          $('.navbar-main').fadeIn();
+          $('.navbar-main').addClass('bg-secondary-theme fixed-top');
+        } else if ($(this).scrollTop() < 150) {
+          $('.navbar-main').removeClass('bg-secondary-theme fixed-top');
+        }
+      });
+    });
+
+  });
+</script>

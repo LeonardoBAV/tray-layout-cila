@@ -1,0 +1,12 @@
+{% if products|length > 0 %}
+    <div class="container-fluid" itemscope itemtype="https://schema.org/SomeProducts">
+        <div class="row" itemscope itemtype="https://schema.org/SomeProducts">
+        {% for product in products %}
+            {% set ranking = product.ranking %}
+            <div class="col-6 col-lg-3 mb-3">
+                {% element 'snippets/product-fluid' {"product": product} %}
+            </div>
+        {% endfor %}
+            </div>
+    </div>
+{% endif %}

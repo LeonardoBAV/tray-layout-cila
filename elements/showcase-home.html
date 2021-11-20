@@ -1,0 +1,10 @@
+<div class="container-fluid mb-3">
+    <h2 class="text-secondary-theme text-center my-4 fs-5">{{ showcaseTitle }}</h2>
+    <div class="owl-carousel owl-theme">
+        {% for product in products %}
+        <div class="item">
+            {% element 'snippets/product-fluid' {"product": product} %}
+        </div>
+        {% endfor %}
+    </div>
+</div>

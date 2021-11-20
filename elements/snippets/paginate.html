@@ -1,0 +1,13 @@
+<div class="d-flex flex-row">
+    {% if paginate.params.pageCount > 1 %}
+    {% if paginate.hasPrev %}
+    {{ paginate.prev('<', {'class': 'page-prev page-item me-2 btn btn-outline-primary text-secondary-theme' }) }} {%
+        endif %} {{ paginate.numbers({ 'modulus' : 5, 'separator' : '' , 'class'
+        : 'page-item me-2 btn btn-outline-primary text-secondary-theme' , 'currentClass' : 'page-current' }) }} {% if
+        paginate.hasNext %} {{ paginate.next('>', {'class': 'page-next page-item btn btn-outline-primary
+        text-secondary-theme'}) }}
+        {% endif %}
+
+        {% endif %}
+        <span class="ms-2 text-secondary-theme d-flex flex-column justify-content-center">{{ paginate.counter('{:count} produto(s) em {:pages} p&aacute;gina(s)') }}</span>
+</div>

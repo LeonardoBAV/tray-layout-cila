@@ -1,0 +1,19 @@
+<section class="newsletter bg-secondary-theme py-5" data-tray-tst="newsletter_box">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 text-white mb-3 mb-md-0">
+                CADASTRE-SE EM NOSSA NEWSLETTER,<br>
+                RECEBA NOVIDADES E GANHE 10% DE DESCONTO
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <form action="{{ links.newsletter }}&v=js" method="post" name="newsletter" data-tray-tst="newsletter_form">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control rounded-0 py-3" placeholder="NOME" aria-label="ADICIONE SEU NOME" id="news-name" name="name" required>
+                        <input type="text" class="form-control py-3" placeholder="EMAIL" aria-label="ADICIONE SEU EMAIL" id="news-email" name="email" type="email" data-tray-tst="newsletter_email" required>
+                        <button class="btn btn-outline-secondary rounded-0 py-3 bg-dark-theme text-white"  data-tray-tst="newsletter_cadastrar">CADASTRE-SE</button>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

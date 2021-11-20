@@ -1,0 +1,9 @@
+<div class="bg-secondary-theme clearfix">
+    <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0 d-flex flex-row justify-content-center w-100 flex-wrap">
+        {% for category in categories %}
+        <li class="nav-item mx-3 mx-xxl-4 py-2">
+            <a class="nav-link text-white text-decoration-none" aria-current="page" href="{{ category.link }}">{{ category.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

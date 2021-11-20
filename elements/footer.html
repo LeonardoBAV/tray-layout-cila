@@ -1,0 +1,93 @@
+{% set checkout = "checkout" in pages.current ? "true" : "false" %}
+<footer class="bg-third-theme">
+    {% element 'snippets/newsletter' %}
+    <div class="container-fluid">
+        <div class="row py-5">
+            <div class="col-12 col-md-6 col-lg-3">
+                <ul class="text-center list-unstyled mb-0">
+                    <li class="mb-2"><a href="{{ links.contact }}" class="text-decoration-none text-white">Contato</a></li>
+                    <li class="mb-2"><a href="/perguntas-frequentes" class="text-decoration-none text-white">Perguntas Frequentes</a></li>
+                    <li class="mb-2"><a href="/dicas-de-uso" class="text-decoration-none text-white">Dicas de Uso</a></li>
+                    <li class="mb-2"><a href="/guia-de-medidas" class="text-decoration-none text-white">Guia de Medidas</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <ul class="text-center list-unstyled mb-0">
+                    <li class="mb-2"><a href="/troca-devolucao" class="text-decoration-none text-white">Troca e Devolução</a></li>
+                    <li class="mb-2"><a href="/entrega-frete" class="text-decoration-none text-white">Entrega e Frete</a></li>
+                    <li class="mb-2"><a href="/termo-uso" class="text-decoration-none text-white">Termos de Uso</a></li>
+                    <li class="mb-2"><a href="/politica-privacidade" class="text-decoration-none text-white">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <ul class="text-center list-unstyled mb-0">
+                    <li class="mb-2"><a href="/quem-somos" class="text-decoration-none text-white">Quem somos</a></li>
+                    <li class="mb-2"><a href="/nossa-historia" class="text-decoration-none text-white">Nossa História</a></li>
+                    <li class="mb-2"><a href="/nossa-fabrica" class="text-decoration-none text-white">Nossa Fábrica</a></li>
+                    <li class="mb-2"><a href="/praticas-responsaveis" class="text-decoration-none text-white">Práticas Responsáveis</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <ul class="text-center list-unstyled mb-0">
+                    <li class="mb-2"><a href="/nossa-loja" class="text-decoration-none text-white">Nossa Loja</a></li>
+                    <li class="mb-2"><a href="/cila-em-casa" class="text-decoration-none text-white">Cila em Casa</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row pb-5">
+            <div class="col-md-4 text-white">
+                CONFECÇÕES CILA LTDA - 20.508.867/0001-60<br>
+                Av. do Contorno, 6181, Savassi - Belo Horizonte - MG - CEP:30.110-110
+                 <ul class="list-unstyled mt-3">
+                     <li><i class="bi bi-telephone me-2"></i>(31) 2555-7566 - 11h às 19h</li>
+                     <li><i class="bi bi-telephone me-2"></i>(31) 99142-4956 - 10h às 17h</li>
+                 </ul>
+                 <ul class="list-unstyled">
+                    <li><i class="bi bi-envelope me-2"></i>cila@cila.com.br</li>
+                    <li><i class="bi bi-envelope me-2"></i>troca@cila.com.br</li>
+                </ul>
+                Horário de funcionamento loja física:
+                Segunda à Sexta - 10h às 19h
+                Sábado - 9h às 14h
+
+            </div>
+            <div class="col-md-4 text-center text-white">
+                Redes Sociais
+                <ul class="list-unstyled d-flex flex-row justify-content-center mt-2">
+                    <li><a href="https://www.facebook.com/cilabeachwear" class="px-1"><img src="https://www.pngjoy.com/pngm/321/6028499_black-and-white-facebook-logo-icons-facebook-round.png" width="40"></a></li>
+                    <li><a href="https://www.instagram.com/cila_br/" class="px-1"><img src="https://i.pinimg.com/474x/bd/f0/88/bdf0886434c2121b5f1075dde7044c25.jpg" width="40"></a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-center text-white">
+                Formas de Pagamento
+                <ul class="payment-list foo-payment list-unstyled  d-flex flex-row justify-content-center mt-2 flex-wrap">
+                    {% for payment in paymentMethods.order %}
+                        <li class="payment-form">
+                            <img src="{{ payment.thumbnail.url }}" alt="{{ payment.display_name }}" class="m-2" style="-webkit-filter: grayscale(1); filter: grayscale(1);  opacity: 0.5; filter: alpha(opacity=50);">
+                        </li>
+                    {% endfor %}
+                    {% for payment in paymentMethods.credit %}
+                        <li class="payment-form">
+                            <img src="{{ payment.thumbnail.url }}" alt="{{ payment.display_name }}" class="m-2" style="-webkit-filter: grayscale(1); filter: grayscale(1);  opacity: 0.5; filter: alpha(opacity=50);">
+                        </li>
+                    {% endfor %} 
+                </ul>
+
+                {% if (seals.ebit or seals.hackersafe) or settings.enable_seal %}
+                    <h3 class="security-title">{{ Translation('seguranca') }}</h3>
+                    <ul class="foo-seals">
+                        {% if seals.ebit %}
+                        <li class="seal-ebit pull-left">{{ seals.ebit }}</li>
+                        {% endif %}
+                        {% if seals.hackersafe %}
+                        <li>{{ seals.hackersafe }}</li>
+                        {% endif %}
+                        {% if settings.enable_seal %}
+                        <li>{{ settings.seal_code }}</li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</footer>
